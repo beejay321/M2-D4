@@ -32,40 +32,84 @@
     />
     <style>
       body {
-        background-color: rgb(253, 211, 224);
+        background-color: rgb(223, 236, 227);
       }
       .navbar {
-        background-color: rgb(224, 95, 136);
+        background-color: rgb(119, 148, 128);
         position: sticky;
       }
-      h2, .navbar-text{
+      h2,
+      .navbar-text {
         text-align: center;
       }
     </style>
   </head>
   <body>
     <nav class="navbar">
-      <h1 class="navbar-text">Strive Team Generator</h1>            
-    </nav>    
-    <section>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="row py-3">
-            <div class="col">
-              <a href="page2.html">
-                <img  src="images\icon.png"
-                alt="">
-             </a>              
-              <h2>Generate Teams</h2>
-            </div>
-                          
-
+      <h1 class="navbar-text">Strive Team Generator</h1>
+    </nav>
+    <!--<section>
+      <div class="container">
+        <div class="row mt-5 py-8">
+          <div class="col">
+            <a href="page2.html">
+              <img src="images\icon.png" alt="" />
+            </a>
           </div>
         </div>
+      </div>
+    </section>-->
 
+
+    <section>
+      <div class="container mt-5">
+        <div class="col">
+          <div class="card shadow">
+            <img src="images\icon.png" class="card-img-top" alt="...">
+            <div class="card-body">             
+              
+              <a href="page2.html" class="btn btn-primary">Generate Teams </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    
+
+    <div class="container mt-5">
+      <label for="exampleFormControlInput1">Add Player</label> <br />
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="newPlayer"
+          class="form-control"
+          placeholder="Name"
+          aria-describedby="button-addon2"
+        />
+        <div class="input-group-append">
+          <input type="button" value="+" onclick="addNewPlayer()" />
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <ul id="myTeam"></ul>
+      </div>
+    </section>
+
+    <script>
+      const list = document.getElementById("myTeam");
+
+      function addNewPlayer() {
+        const newPlayer = document.getElementById("newPlayer");
+
+        const newLi = document.createElement("li");
+
+        newLi.innerHTML = newPlayer.value;
+
+        list.appendChild(newLi);
+      }
+    </script>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
