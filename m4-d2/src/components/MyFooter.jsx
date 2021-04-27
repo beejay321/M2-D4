@@ -1,15 +1,14 @@
-import { Button, Navbar,  Nav } from "react-bootstrap";
+import { Button, Navbar, Nav, Container, Row } from "react-bootstrap";
 
 const MyFooter = function () {
   return (
-    <Navbar fixed="bottom" bg="light" expand="lg">
-      <footer class="text-muted">
-        <div class="container">
-          <p class="float-right">
-            <a href="#">Back to top</a>
-          </p>
-          
-        </div>
+    <Navbar bg="light" expand="lg">
+      <footer>
+        <Container>
+          <Row>
+            <h4>Sign up for our Newsletter</h4>
+          </Row>
+        </Container>
       </footer>
     </Navbar>
   );

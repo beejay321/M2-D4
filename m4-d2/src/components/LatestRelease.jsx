@@ -1,23 +1,30 @@
-import { Container, Row, Col, Card, Button, Figure } from "react-bootstrap";
-import items from "../data/fantasy.json";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Button,
+  Figure,
+  Image,
+} from "react-bootstrap";
+import items from "../data/history.json";
 
 const LatestRelease = function () {
   return (
     <Container>
-      <Row xs={2} md={4} lg={6}>
-        <Col xs={6}>
-          {items.map((item) => (
+      <Row>
+        {items.map((item) => (
+          <Col xs={12} md={4} lg={3}>
             <Figure key={item.asin}>
               <Figure.Image
-                width={171}
-                height={180}
-                alt="171x180"
+                width={180}
+                alt={item.title}
                 src={item.img}
+                rounded
               />
-              <Figure.Caption>{item.title}</Figure.Caption>
             </Figure>
-          ))}
-        </Col>
+          </Col>
+        ))}
       </Row>
     </Container>
   );

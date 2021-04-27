@@ -3,10 +3,9 @@ import {Jumbotron, Button } from "react-bootstrap";
 const Welcome = function() {
     return (
         <Jumbotron>
-  <h1>Hello, world!</h1>
+  <h1>World of Books</h1>
   <p>
-    This is a simple hero unit, a simple jumbotron-style component for calling
-    extra attention to featured content or information.
+  <em >An online bookstore that financially supports local independent bookstores and gives back to the book community.</em>
   </p>
   <p>
     <Button variant="primary">Learn more</Button>
