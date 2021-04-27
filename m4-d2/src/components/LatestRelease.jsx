@@ -1,25 +1,19 @@
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Button,
-  Figure,
-  Image,
-} from "react-bootstrap";
-import items from "../data/history.json";
+import { Container, Row, Col, Figure } from "react-bootstrap";
+import books from "../data/history.json";
 
 const LatestRelease = function () {
   return (
     <Container>
+      <h3>Latest Releases</h3>
+      <br />
       <Row>
-        {items.map((item) => (
-          <Col xs={12} md={4} lg={3}>
-            <Figure key={item.asin}>
+        {books.map((book) => (
+          <Col xs={12} md={4} lg={2}>
+            <Figure key={book.asin}>
               <Figure.Image
-                width={180}
-                alt={item.title}
-                src={item.img}
+                width={150}
+                alt={book.title}
+                src={book.img}
                 rounded
               />
             </Figure>
