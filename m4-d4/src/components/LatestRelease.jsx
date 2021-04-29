@@ -3,10 +3,11 @@ import books from "../data/history.json";
 import items from "./LatestRelease";
 import React from "react";
 import CommentsArea from "./CommentsArea";
+import RetrieveComments from "./RetrieveComments";
 
 class LatestRelease extends React.Component {
   state = {
-    selectedBook: items[0],
+    selectedBook: books[0],
   };
   render() {
     return (
@@ -14,29 +15,28 @@ class LatestRelease extends React.Component {
         <h3>Latest Releases</h3>
         <br />
         <Row>
-          {books.map((book) => (
-            <Col xs={12} md={4} lg={2}>
-              <Figure
-                key={book.asin}
-                //   onClick={() => this.setState({ selectedBook: item })}
-              >
-                <Figure.Image
-                  width={150}
-                  alt={book.title}
-                  src={book.img}
-                  rounded
-                />
-              </Figure>
-              <CommentsArea />
-              <Card style={{ width: "10rem" }}>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                  <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                  <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                </ListGroup>
-              </Card>
-            </Col>
-          ))}
+          <Col xs={8} md={8}>
+            <Row>
+              {books.map((book) => (
+                <Col xs={12} md={4} lg={2}>
+                  <Figure
+                    key={book.asin}
+                    onClick={() => this.setState({ selectedBook: book })}
+                  >
+                    <Figure.Image
+                      width={150}
+                      alt={book.title}
+                      src={book.img}
+                      rounded
+                    />
+                  </Figure>
+                </Col>
+              ))}
+            </Row>
+          </Col>
+          <Col xs={4} md={4}>
+            <CommentsArea item={this.state.selectedBook} />
+          </Col>
         </Row>
       </Container>
     );

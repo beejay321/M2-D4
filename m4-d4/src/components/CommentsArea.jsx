@@ -1,56 +1,20 @@
-import React from "react";
-import { Container, Row, Col, ListGroup, Card } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 
-class CommentsArea extends React.Component {
-  state = {
-    items: [],
-    isLoading: false,
-    isError: false,
-  };
+const CommentsArea = (props) => (
+  // props.item is the whole object
+  <div>
+    <h2>Comments for {props.item.title}</h2>
+    <ListGroup>
+      {props.item.map((item) => (
+        <ListGroup key={props.item.asin}>
+          <ListGroup.Item>
+            <img src={props.item.img} />
+          </ListGroup.Item>
+          <ListGroup.Item>{props.item.rate}</ListGroup.Item>
+        </ListGroup>
+      ))}
+    </ListGroup>
+  </div>
+);
 
-  componentDidMount = async () => {
-    this.setState({
-      isLoading: true,
-    });
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMjEyYmIxZjBmYjAwMTVkOTE3OTkiLCJpYXQiOjE2MTkwMDk4MzUsImV4cCI6MTYyMDIxOTQzNX0.sjaCwExKLRwOY8S2I_evvMJ0RFmAb_2kU2aqNqyAakc",
-          },
-        }
-      );
-      console.log(response);
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        this.setState({ items: data, isError: false, isLoading: false });
-      } else {
-        console.log("houston we got an error");
-        this.setState({ isError: true, isLoading: false });
-      }
-    } catch (error) {
-      console.log(error);
-      this.setState({ isError: true, isLoading: false });
-    }
-  };
-
-  render() {
-    return (
-      <Container>
-        {this.state.items.map((item) => (
-          <Card style={{ width: "10rem" }}>
-            <ListGroup key={item.elementId}>
-              <ListGroup.Item>{item.comment}</ListGroup.Item>
-              <ListGroup.Item>{item.rate}</ListGroup.Item>
-            </ListGroup>
-          </Card>
-        ))}
-      </Container>
-    );
-  }
-}
 export default CommentsArea;
