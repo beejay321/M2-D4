@@ -15,7 +15,7 @@ class LatestRelease extends React.Component {
         <h3>Latest Releases</h3>
         <br />
         <Row>
-          <Col xs={8} md={8}>
+          <Col xs={8} md={10}>
             <Row>
               {books.map((book) => (
                 <Col xs={12} md={4} lg={2}>
@@ -34,8 +34,8 @@ class LatestRelease extends React.Component {
               ))}
             </Row>
           </Col>
-          <Col xs={4} md={4}>
-            <CommentsArea item={this.state.selectedBook} />
+          <Col xs={4} md={2}>
+            <CommentsArea item={books[0]} />
           </Col>
         </Row>
       </Container>

@@ -45,7 +45,7 @@ class RetrieveComments extends React.Component {
       <Container>
         {
           <Card style={{ width: "10rem" }}>
-            <ListGroup key={this.props.item.elementId}>
+            <ListGroup key={this.props.items.elementId}>
               <ListGroup.Item>{this.props.item.comment}</ListGroup.Item>
               <ListGroup.Item>{this.props.item.rate}</ListGroup.Item>
             </ListGroup>

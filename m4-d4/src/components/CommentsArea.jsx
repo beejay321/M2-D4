@@ -1,18 +1,23 @@
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, FormControl, Button } from "react-bootstrap";
+import items from "./LatestRelease";
 
 const CommentsArea = (props) => (
   // props.item is the whole object
   <div>
-    <h2>Comments for {props.item.title}</h2>
+    <h6>Comments </h6>
     <ListGroup>
-      {props.item.map((item) => (
+      {
         <ListGroup key={props.item.asin}>
           <ListGroup.Item>
-            <img src={props.item.img} />
+            <img width={120} src={props.item.img} />
           </ListGroup.Item>
-          <ListGroup.Item>{props.item.rate}</ListGroup.Item>
+          <FormControl
+            placeholder="Add Comment"
+            aria-describedby="basic-addon1"
+          />
+          <Button variant="primary">Comment</Button>{" "}
         </ListGroup>
-      ))}
+      }
     </ListGroup>
   </div>
 );
