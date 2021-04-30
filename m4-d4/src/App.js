@@ -3,6 +3,7 @@ import MyNavBar from "./components/MyNavBar";
 import Welcome from "./components/Welcome";
 import LatestRelease from "./components/LatestRelease";
 import MyFooter from "./components/MyFooter";
+import books from "./data/history.json";
 
 function App() {
   return (

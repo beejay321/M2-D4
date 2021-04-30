@@ -1,8 +1,7 @@
-import { Container, Row, Col, Figure, Card, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Figure } from "react-bootstrap";
 import books from "../data/history.json";
-import items from "./LatestRelease";
 import React from "react";
-import CommentsArea from "./CommentsArea";
+import AddComments from "./AddComments";
 import RetrieveComments from "./RetrieveComments";
 
 class LatestRelease extends React.Component {
@@ -35,7 +34,11 @@ class LatestRelease extends React.Component {
             </Row>
           </Col>
           <Col xs={4} md={2}>
-            <CommentsArea item={books[0]} />
+            <RetrieveComments
+              item={this.state.selectedBook}
+              asin={this.state.selectedBook.asin}
+            />
+            <AddComments asin={this.state.selectedBook.asin} />
           </Col>
         </Row>
       </Container>
