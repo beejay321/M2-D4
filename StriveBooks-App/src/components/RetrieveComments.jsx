@@ -10,6 +10,11 @@ class RetrieveComments extends React.Component {
   };
 
   componentDidMount = async () => {
+    console.log("THIS IS COMPONENTDIDMOUNT");
+    this.fetchComments();
+  };
+
+  fetchComments = async () => {
     this.setState({
       isLoading: true,
       asin: this.props.asin,
@@ -17,8 +22,7 @@ class RetrieveComments extends React.Component {
 
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" +
-          this.state.asin,
+        `https://striveschool-api.herokuapp.com/api/comments/${this.props.asin}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -42,11 +46,14 @@ class RetrieveComments extends React.Component {
     }
   };
 
+  componentDidUpdate = (prevProps) => {
+    prevProps.asin !== this.props.asin && this.fetchComments();
+  };
+
   deleteComment = async () => {
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" +
-          this.props.asin,
+        `https://striveschool-api.herokuapp.com/api/comments/${this.props.asin}`,
         {
           method: "DELETE",
           headers: {
@@ -70,25 +77,28 @@ class RetrieveComments extends React.Component {
       <div>
         <h6>Comments </h6>
         {
-          <Card style={{ width: "10rem" }}>
+          <Card style={{ width: "15rem" }}>
             <ListGroup key={this.props.item.asin}>
               <ListGroup.Item>
                 <img
-                  width={120}
+                  width={150}
                   src={this.props.item.img}
                   alt={this.props.item.title}
                 />
               </ListGroup.Item>
               {this.state.items.map((itm) => (
                 <div>
-                  <ListGroup.Item key={itm._id}>{itm.comment}</ListGroup.Item>
-                  <Button
-                    onClick={this.deleteComment}
-                    variant="danger"
-                    type="submit"
-                  >
-                    Delete
-                  </Button>
+                  <ListGroup.Item key={itm._id}>
+                    {itm.comment}
+                    <Button
+                      className="mr-5"
+                      onClick={this.deleteComment}
+                      variant="danger"
+                      type="submit"
+                    >
+                      Del
+                    </Button>
+                  </ListGroup.Item>
                 </div>
               ))}
             </ListGroup>
