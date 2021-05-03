@@ -10,6 +10,7 @@ import {
 import React from "react";
 import "./LoadMovies.css";
 import LoadMovies from "./LoadMovies";
+import MovieList from "./MovieList";
 
 class SearchQuery extends React.Component {
   state = {
@@ -65,11 +66,9 @@ class SearchQuery extends React.Component {
             <span className="sr-only">Loading...</span>
           </Spinner>
         )}
+        <MovieList />
 
-        <Row className="mt-5  " >
-          <LoadMovies genre="comedy" />
-
-          {/* {this.state.movies
+        {/* {this.state.movies
             .filter((movie) =>
               movie.Title.toLowerCase().includes(this.state.query)
             )
@@ -80,16 +79,6 @@ class SearchQuery extends React.Component {
                 </Card>
               </Col>
             ))} */}
-        </Row>
-        <Row className="mt-5  ">
-          <LoadMovies genre="romance" />
-        </Row>
-        <Row className="mt-5  " >
-          <LoadMovies genre="drama" />
-        </Row>
-        <Row className="mt-5  " >
-          <LoadMovies genre="action" />
-        </Row>
       </Container>
     );
   }
