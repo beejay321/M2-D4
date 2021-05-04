@@ -17,7 +17,6 @@ class SearchQuery extends React.Component {
     value: "",
     query: "",
     movies: [],
-    category: "",
     isLoading: false,
     isError: false,
   };
@@ -66,9 +65,9 @@ class SearchQuery extends React.Component {
             <span className="sr-only">Loading...</span>
           </Spinner>
         )}
-        <MovieList />
 
-        {/* {this.state.movies
+        <Row id="movieRow" className="flex-row flex-nowrap scroll-container">
+          {this.state.movies
             .filter((movie) =>
               movie.Title.toLowerCase().includes(this.state.query)
             )
@@ -78,7 +77,10 @@ class SearchQuery extends React.Component {
                   <Card.Img variant="cover" src={movie.Poster} rounded />
                 </Card>
               </Col>
-            ))} */}
+            ))}
+        </Row>
+
+        <MovieList />
       </Container>
     );
   }

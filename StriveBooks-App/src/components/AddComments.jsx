@@ -7,6 +7,7 @@ class AddComments extends React.Component {
     commentsAdded: {
       comment: "",
       rate: "",
+      elementId: this.props.asin,
     },
   };
 
@@ -17,10 +18,7 @@ class AddComments extends React.Component {
         "https://striveschool-api.herokuapp.com/api/comments/",
         {
           method: "POST",
-          body: JSON.stringify({
-            ...this.state.commentsAdded,
-            elementId: this.props.asin,
-          }),
+          body: JSON.stringify(this.state.commentsAdded),
           headers: {
             "Content-Type": "application/json",
             Authorization:
