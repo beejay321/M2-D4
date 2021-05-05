@@ -7,7 +7,7 @@ class ShowDetail extends Component {
   };
 
   componentDidMount = async (props) => {
-    // let idFromTheURLBar = this.props.match.params.movieId;
+    let id = this.props.match.params.movieId;
 
     this.setState({
       isLoading: true,
@@ -15,7 +15,7 @@ class ShowDetail extends Component {
 
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?apikey=9dd1231b&i=tt0241527`
+        `http://www.omdbapi.com/?apikey=9dd1231b&i=` + id
       );
       //   console.log(response);
       if (response.ok) {

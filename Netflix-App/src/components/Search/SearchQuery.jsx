@@ -67,7 +67,7 @@ class SearchQuery extends React.Component {
           </Spinner>
         )}
 
-        <Row id="movieRow" className="flex-row flex-nowrap scroll-container">
+        {/* <Row id="movieRow" className="flex-row flex-nowrap scroll-container">
           {this.state.movies
             .filter((movie) =>
               movie.Title.toLowerCase().includes(this.state.query)
@@ -79,7 +79,7 @@ class SearchQuery extends React.Component {
                 </Card>
               </Col>
             ))}
-        </Row>
+        </Row> */}
 
         <MovieList passingProps={this.props} />
       </Container>

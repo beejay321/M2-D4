@@ -14,10 +14,14 @@ const App = () => {
       <Router>
         <MyNav />
         {/* <SearchQuery genre="action" /> */}
-        <Route render={(routerProps) => (<SearchQuery genre="action" {...routerProps} />)}path="/"
+        <Route
+          render={(routerProps) => (
+            <SearchQuery genre="action" {...routerProps} />
+          )}
+          path="/"
           exact
         />
-        <Route component={ShowDetail} path="/details" />
+        <Route component={ShowDetail} path="/details/:movieId" />
         {/* <MyFooter /> */}
         {/* <ShowDetail /> */}
       </Router>
