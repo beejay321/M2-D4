@@ -5,6 +5,7 @@ import SearchQuery from "./components/Search/SearchQuery";
 import MyNav from "./components/Navbar/MyNav.jsx";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ShowDetail from "./components/ShowDetail";
+import TVShows from "./components/TVShows";
 
 // import MyFooter from "./components/Footer/MyFooter";
 
@@ -23,11 +24,15 @@ const App = () => {
         />
         <Route
           render={(routerProps) => (
-            <ShowDetail  title="DETAILS" {...routerProps} />
+            <ShowDetail title="DETAILS" {...routerProps} />
           )}
           path="/details/:movieId"
         />
-      
+        <Route
+          render={(routerProps) => <TVShows type="series" {...routerProps} />}
+          path="/TVShows"
+        />
+
         {/* <MyFooter /> */}
         {/* <ShowDetail /> */}
       </Router>

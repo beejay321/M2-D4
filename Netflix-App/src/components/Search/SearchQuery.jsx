@@ -53,7 +53,7 @@ class SearchQuery extends React.Component {
     console.log(this.props);
     return (
       <Container className="mb-5  ">
-        <InputGroup className="mb-3">
+        <InputGroup className="my-4">
           <FormControl
             onChange={(e) => this.setState({ query: e.target.value })}
             placeholder="Search"

@@ -22,9 +22,11 @@ const MyNav = () => (
             Home
           </Nav.Link>
         </Link>
-        <Nav.Link className="mt-3" href="#features">
-          TV Shows
-        </Nav.Link>
+        <Link to="/TVShows">
+          <Nav.Link className="mt-3" href="#features">
+            TV Shows
+          </Nav.Link>
+        </Link>
         <Nav.Link className="mt-3" href="#features">
           Movies
         </Nav.Link>
