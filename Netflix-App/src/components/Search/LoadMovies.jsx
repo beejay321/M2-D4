@@ -49,8 +49,11 @@ class LoadMovies extends React.Component {
   };
 
   render() {
+    console.log(this.state.movies);
+    console.log(this.props.passingProps);
+
     return (
-      <Container >
+      <Container>
         {this.state.isLoading && (
           <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
@@ -61,7 +64,15 @@ class LoadMovies extends React.Component {
         <Row id="movieRow" className="flex-row flex-nowrap scroll-container">
           {this.state.movies.map((movie) => (
             <Col>
-              <Card className="h-100 text-center ">
+              <Card
+                key={movie.imdbID}
+                className="h-100 text-center "
+                onClick={() =>
+                  this.props.passingProps.history.push(
+                    "/details/" + movie.imdbID
+                  )
+                }
+              >
                 <Card.Img variant="cover" src={movie.Poster} rounded />
               </Card>
             </Col>

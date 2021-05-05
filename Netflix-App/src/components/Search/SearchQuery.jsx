@@ -8,7 +8,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import React from "react";
-import "./LoadMovies.css";
+// import "./LoadMovies.css";
 import LoadMovies from "./LoadMovies";
 import MovieList from "./MovieList";
 
@@ -50,6 +50,7 @@ class SearchQuery extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <Container className="mb-5  ">
         <InputGroup className="mb-1">
@@ -80,7 +81,7 @@ class SearchQuery extends React.Component {
             ))}
         </Row>
 
-        <MovieList />
+        <MovieList passingProps={this.props} />
       </Container>
     );
   }

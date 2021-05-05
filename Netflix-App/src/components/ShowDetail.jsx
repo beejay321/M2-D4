@@ -1,17 +1,79 @@
 import { Component } from "react";
-
+import { Container, ListGroup } from "react-bootstrap";
 
 class ShowDetail extends Component {
   state = {
     MovieToShow: null,
   };
 
-  componentDidMount() {}
+  componentDidMount = async (props) => {
+    // let idFromTheURLBar = this.props.match.params.movieId;
+
+    this.setState({
+      isLoading: true,
+    });
+
+    try {
+      const response = await fetch(
+        `http://www.omdbapi.com/?apikey=9dd1231b&i=tt0241527`
+      );
+      //   console.log(response);
+      if (response.ok) {
+        let data = await response.json();
+        console.log("why arent you console logging");
+        console.log(data);
+        this.setState({
+          MovieToShow: data,
+          isError: false,
+          isLoading: false,
+        });
+      } else {
+        console.log("we got an error");
+        this.setState({ isError: true, isLoading: false });
+      }
+    } catch (error) {
+      console.log(error);
+      this.setState({ isError: true, isLoading: false });
+    }
+  };
 
   render() {
+    console.log("Not AGAIN");
+
+    console.log(this.state.MovieToShow);
     return (
       <>
-        <h1> DETAILS </h1>
+        {this.state.MovieToShow && (
+          <Container>
+            {/* <h1> DETAILS </h1> */}
+            <ListGroup>
+              <ListGroup.Item>
+                <h5> {this.state.MovieToShow.Title}</h5>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <img src={this.state.MovieToShow.Poster} alt="a movie" />
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <p>{this.state.MovieToShow.Plot}</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <p>{this.state.MovieToShow.Actors}</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <p>{this.state.MovieToShow.Genre}</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <p>{this.state.MovieToShow.Released}</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <p>{this.state.MovieToShow.Language}</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <p>{this.state.MovieToShow.imdbRating}</p>
+              </ListGroup.Item>
+            </ListGroup>
+          </Container>
+        )}
       </>
     );
   }

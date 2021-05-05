@@ -1,5 +1,5 @@
 import React from "react";
-import "./LoadMovies.css";
+// import "./LoadMovies.css";
 import LoadMovies from "./LoadMovies";
 import {
   Container,
@@ -11,17 +11,19 @@ import {
   Spinner,
 } from "react-bootstrap";
 
-const MovieList = () => {
+const MovieList = (props) => {
+  console.log(props.passingProps);
+
   return (
     <div>
       <Row className="mt-5  ">
-        <LoadMovies genre="romance" />
+        <LoadMovies passingProps={props.passingProps} genre="romance" />
       </Row>
       <Row className="mt-5  ">
-        <LoadMovies genre="drama" />
+        <LoadMovies passingProps={props.passingProps} genre="drama" />
       </Row>
       <Row className="mt-5  ">
-        <LoadMovies genre="action" />
+        <LoadMovies passingProps={props.passingProps} genre="action" />
       </Row>
     </div>
   );
