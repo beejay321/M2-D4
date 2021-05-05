@@ -39,13 +39,14 @@ class ShowDetail extends Component {
 
   render() {
     console.log("Not AGAIN");
+    console.log(this.props.title);
 
     console.log(this.state.MovieToShow);
     return (
       <>
+        <h1 className="py-4"> {this.props.title} </h1>
         {this.state.MovieToShow && (
           <Container>
-            {/* <h1> DETAILS </h1> */}
             <ListGroup>
               <ListGroup.Item>
                 <h5> {this.state.MovieToShow.Title}</h5>

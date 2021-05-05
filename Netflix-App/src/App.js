@@ -16,12 +16,18 @@ const App = () => {
         {/* <SearchQuery genre="action" /> */}
         <Route
           render={(routerProps) => (
-            <SearchQuery genre="action" {...routerProps} />
+            <SearchQuery genre="action" title="MOVIES" {...routerProps} />
           )}
           path="/"
           exact
         />
-        <Route component={ShowDetail} path="/details/:movieId" />
+        <Route
+          render={(routerProps) => (
+            <ShowDetail  title="DETAILS" {...routerProps} />
+          )}
+          path="/details/:movieId"
+        />
+      
         {/* <MyFooter /> */}
         {/* <ShowDetail /> */}
       </Router>

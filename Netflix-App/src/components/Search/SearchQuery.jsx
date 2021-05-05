@@ -53,13 +53,14 @@ class SearchQuery extends React.Component {
     console.log(this.props);
     return (
       <Container className="mb-5  ">
-        <InputGroup className="mb-1">
+        <InputGroup className="mb-3">
           <FormControl
             onChange={(e) => this.setState({ query: e.target.value })}
             placeholder="Search"
             aria-describedby="basic-addon1"
           />
         </InputGroup>
+        <h1> {this.props.title} </h1>
 
         {this.state.isLoading && (
           <Spinner animation="border" role="status">
