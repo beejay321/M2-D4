@@ -1,15 +1,12 @@
 import {
   Container,
-  Row,
-  Col,
-  Card,
   InputGroup,
   FormControl,
   Spinner,
 } from "react-bootstrap";
 import React from "react";
 // import "./LoadMovies.css";
-import LoadMovies from "./LoadMovies";
+// import LoadMovies from "./LoadMovies";
 import MovieList from "./MovieList";
 
 class SearchQuery extends React.Component {
@@ -21,7 +18,7 @@ class SearchQuery extends React.Component {
     isError: false,
   };
 
-  componentDidMount = async (props) => {
+  componentDidMount = async () => {
     this.setState({
       isLoading: true,
     });

@@ -53,14 +53,16 @@ const MyNav = () => (
             style={{ width: "20px", height: "20px" }}
           />
         </Nav.Link>
-        <Nav.Link href="#home">
-          <img
-            className="ml-3"
-            src={avatar}
-            alt="avatar"
-            style={{ width: "30px", height: "30px" }}
-          />
-        </Nav.Link>
+        <Link to="/register">
+          <Nav.Link href="#home">
+            <img
+              className="ml-3"
+              src={avatar}
+              alt="avatar"
+              style={{ width: "30px", height: "30px" }}
+            />
+          </Nav.Link>
+        </Link>
       </Nav>
     </Navbar>
   </>

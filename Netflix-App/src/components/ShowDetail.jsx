@@ -6,7 +6,7 @@ class ShowDetail extends Component {
     MovieToShow: null,
   };
 
-  componentDidMount = async (props) => {
+  componentDidMount = async () => {
     let id = this.props.match.params.movieId;
 
     this.setState({

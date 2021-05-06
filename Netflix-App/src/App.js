@@ -6,6 +6,7 @@ import MyNav from "./components/Navbar/MyNav.jsx";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ShowDetail from "./components/ShowDetail";
 import TVShows from "./components/TVShows";
+import Registration from "./components/Registration";
 
 // import MyFooter from "./components/Footer/MyFooter";
 
@@ -31,6 +32,12 @@ const App = () => {
         <Route
           render={(routerProps) => <TVShows type="series" {...routerProps} />}
           path="/TVShows"
+        />
+        <Route
+          render={(routerProps) => (
+            <Registration type="series" {...routerProps} />
+          )}
+          path="/register"
         />
 
         {/* <MyFooter /> */}
